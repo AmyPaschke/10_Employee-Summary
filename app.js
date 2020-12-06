@@ -33,3 +33,30 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+let response;
+let collectingData = true;
+
+// let employees = [];
+//
+// while (collectingData) {
+//   response = inquirer.prompt("What type of Employee are you looking to add? [Manager, Engineer, Intern] (Leave blank to skip)")
+//
+//   if (response = "") {
+//     collectingData = false;
+//   } else if (response == "Manager") {
+//     // Ask for manager details
+//     let name =
+//     let id =
+//     let email =
+//     employees.push(new Manager(name, id, email))
+//   } else if (response == "Engineer") {
+//
+//   }
+// }
+
+let employees = [new Manager()];
+
+let html = render(employees);
+
+console.log(html);

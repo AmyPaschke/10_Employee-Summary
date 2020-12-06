@@ -18,3 +18,9 @@ test("Can get office number via getOffice()", () => {
   const e = new Manager("Foo", 1, "test@test.com", testValue);
   expect(e.getOfficeNumber()).toBe(testValue);
 });
+
+test("Manager behaves like Employee", () => {
+  let superClass = Object.getPrototypeOf(Manager.prototype).constructor.name;
+
+  expect(superClass).toBe("Employee");
+});
