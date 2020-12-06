@@ -1,4 +1,3 @@
-//utilize constants to create methods
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -14,65 +13,77 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-const questions = [
-  {
-    type: "input",
-    message: "What is the name of your employee?",
-    name: "name",
-  },
-  {
-    type: "input",
-    message: "What is the id of your employee?",
-    name: "id",
-  },
-  {
-    type: "input",
-    message: "What is the email of your employee?",
-    name: "email",
-  },
-];
-
-let managerQuestion = [
+async function generateTeam() {
+  const userInput = await inquirer.prompt([
     {
-        type: "input",
-        message: "What is the manager's office number?",
-        name: "officeNumber",
-      },
-]
-
-let internQuestion = [
+      type: "input",
+      message: "Name",
+      name: "name",
+    },
     {
-        type: "input",
-        message: "What is the school your intern attends?",
-        name: "school",
-      },
-]
-
-let engineerQuestion = [
+      type: "input",
+      message: "ID",
+      name: "id",
+    },
     {
-        type: "input",
-        message: "What is the engineer's GitHub?",
-        name: "github",
-      },
-]
-
-let typeQuestion = [
+      type: "input",
+      message: "Email",
+      name: "email",
+    },
     {
-        type: "list",
-        message: "Which type of employee would you like to add?",
-        name: "type",
-        choices: ["Intern", "Engineer", "Manager"],
-      },
-]
+      type: "list",
+      message: "What is Your Role?",
+      name: "role",
+      choices: ["Manager", "Engineer", "Intern"],
+    },
+  ]);
+  switch (userInput.role) {
+    case "Manager":
+      const officeNumberPrompt = await inquirer.prompt([
+        {
+          type: "input",
+          message: "Office Number",
+          name: "officeNumber",
+        },
+      ]);
 
-let endQuestion = [
-    {
-        type: "list",
-        message: "Would you like to add another employee?",
-        name: "type",
-        choices: ["Yes", "No"],
-      },
-]
+      return officeNumberPrompt.name;
+
+    case "Engineer":
+      const githubPrompt = await inquirer.prompt([
+        {
+          type: "input",
+          message: "GitHub Username",
+          name: "github",
+        },
+      ]);
+
+      return githubPrompt.name;
+
+    case "Intern":
+      const schoolPrompt = await inquirer.prompt([
+        {
+          type: "input",
+          message: "Current School",
+          name: "school",
+        },
+      ]);
+
+      return console.log(schoolPrompt.name);
+
+    default:
+      console.log("Working");
+      return;
+  }
+}
+
+generateTeam();
+
+// {
+//     type: "list",
+//         message: "Manager's Office Number",
+//             name: "officeNumber"
+// },
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -84,51 +95,25 @@ let endQuestion = [
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
-let response;
-let collectingData = true;
+// HINT: each employee type (manager, engineer, or intern) has slightly different
+// information; write your code to ask different questions via inquirer depending on
+// employee type.
 
-let employees = [];
+// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
+// and Intern classes should all extend from a class named Employee; see the directions
+// for further information. Be sure to test out each class and verify it generates an
+// object with the correct structure and methods. This structure will be crucial in order
+// for the provided `render` function to work! ```
 
-function employeeGenerator() {
-    return inquirer.prompt(typeQuestion).then(function(response){
-        if (response = "") {
-            collectingData = false;
-        }   else if (response == "Manager") {
-            inquirer.prompt(questions).prompt(managerQuestion).prompt(endQuestion).then(function(response){
-                if (response = "Yes") {
-                    employees.push(new Manager(name, id, email));
-                    //loop
-                    } else {
-                        employees.push(new Manager(name, id, email));
-                        inquirer.then(fsFunction());
-                    }
-                })
-            }
-    }) 
-}
+// const createHTML = async () => {
+//   try {
+//     const answers = await generateTeam();
+//     const teamContent = generateContent(answers);
 
-function fsFunction() {
-fs.writeFile(fileName, markdown, (error) =>
-    error ? console.log(error) : console.log())
-}
+//     await fs.writeFile(outputPath, teamContent);
 
-while (collectingData) {
-   response = inquirer.prompt("What type of Employee are you looking to add? [Manager, Engineer, Intern] (Leave blank to skip)")
-//
-//   if (response = "") {
-//     collectingData = false;
-
-//     let name =
-//     let id =
-//     let email =
-//     employees.push(new Manager(name, id, email))
-//   } else if (response == "Engineer") {
-//
+//     console.log("Wrote file.");
+//   } catch (error) {
+//     console.log(error);
 //   }
-// }
-
-//let employees = [new Manager(), new Intern(), new Engineer()];
-
-let html = render(employees);
-
-console.log(html);
+// };
