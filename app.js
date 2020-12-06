@@ -55,7 +55,7 @@ let collectingData = true;
 //   }
 // }
 
-let employees = [new Manager()];
+let employees = [new Manager(), new Intern(), new Engineer()];
 
 let html = render(employees);
 
