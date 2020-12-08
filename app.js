@@ -13,7 +13,7 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-async function generateTeam() {
+async function userPrompts() {
   const userInput = await inquirer.prompt([
     {
       type: "input",
@@ -47,7 +47,13 @@ async function generateTeam() {
         },
       ]);
 
-      return officeNumberPrompt.name;
+      let managerInfo = new Manager(
+        userInput.name,
+        userInput.id,
+        userInput.email,
+        officeNumberPrompt.officeNumber
+      );
+      return managerInfo;
 
     case "Engineer":
       const githubPrompt = await inquirer.prompt([
@@ -58,7 +64,13 @@ async function generateTeam() {
         },
       ]);
 
-      return githubPrompt.name;
+      let engineerInfo = new Engineer(
+        userInput.name,
+        userInput.id,
+        userInput.email,
+        githubPrompt.github
+      );
+      return engineerInfo;
 
     case "Intern":
       const schoolPrompt = await inquirer.prompt([
@@ -69,7 +81,13 @@ async function generateTeam() {
         },
       ]);
 
-      return console.log(schoolPrompt.name);
+      let internInfo = new Intern(
+        userInput.name,
+        userInput.id,
+        userInput.email,
+        schoolPrompt.school
+      );
+      return internInfo;
 
     default:
       console.log("Working");
@@ -77,7 +95,37 @@ async function generateTeam() {
   }
 }
 
-generateTeam();
+// render(team);
+async function testy() {
+  const team = [];
+  let newTeamMember = await userPrompts();
+  team.push(newTeamMember);
+  console.log(team);
+}
+
+// userPrompts();
+testy();
+
+// async function makeDirectory(){
+//     fs.mkdir(OUTPUT_DIR);
+// }
+
+// const pumpOutHTML = async () => {
+//     try {
+//         // const renderHtml = render()
+//         generateTeam();
+//         await makeDirectory();
+//         // const teamContent = generateContent(answers);
+
+//         await fs.writeFile(outputPath);
+
+//         console.log('');
+//     } catch (err) {
+//         console.log(err);
+//     }
+// };
+
+// pumpOutHTML();
 
 // {
 //     type: "list",
@@ -104,16 +152,3 @@ generateTeam();
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
-
-// const createHTML = async () => {
-//   try {
-//     const answers = await generateTeam();
-//     const teamContent = generateContent(answers);
-
-//     await fs.writeFile(outputPath, teamContent);
-
-//     console.log("Wrote file.");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
