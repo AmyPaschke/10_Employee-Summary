@@ -12,6 +12,14 @@ Screenshot images of the app.js script:
 
 ![image](https://user-images.githubusercontent.com/70075341/101697784-0dde7c00-3a3e-11eb-92ba-b86f343ee143.JPG)
 
+Portion of functioning HTML generated:
+
+![image](https://user-images.githubusercontent.com/70075341/101698501-2ef39c80-3a3f-11eb-939b-d47e5bea8da2.JPG)
+
+Portion of HTML and how it looks in a browser:
+
+![image](https://user-images.githubusercontent.com/70075341/101699167-4e3ef980-3a40-11eb-9d8d-e7eca03aaab2.JPG)
+
 ## Code Example
 
 Here is an interior look at my JavaScript code:
