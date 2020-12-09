@@ -8,27 +8,29 @@ As a practice with using package.json and using extra files to inegrate into ext
 
 ## Screenshots
 
-Screenshot images of the node.js script:
+Screenshot images of the app.js script:
 
-![image](https://user-images.githubusercontent.com/70075341/100549160-de0dc800-3236-11eb-82b6-ce941759537e.JPG)
+![image](https://user-images.githubusercontent.com/70075341/101697784-0dde7c00-3a3e-11eb-92ba-b86f343ee143.JPG)
 
 ## Code Example
 
 Here is an interior look at my JavaScript code:
 
-Image of the initial inquirer code and the creation of the licenses:
+Initial section of my main function to generate the employees:
 
-![image1](https://user-images.githubusercontent.com/70075341/100549252-815edd00-3237-11eb-901f-8baafb229065.JPG)
+![image](https://user-images.githubusercontent.com/70075341/101697352-4c276b80-3a3d-11eb-8a90-32b44863686b.JPG)
 
-Interior look at the creation of the markdown file:
+Portion of my .then:
 
-![image2](https://user-images.githubusercontent.com/70075341/100549254-81f77380-3237-11eb-9b75-ab1a3068bfc6.JPG)
+![image](https://user-images.githubusercontent.com/70075341/101697351-4c276b80-3a3d-11eb-8aa9-41e9f6260c55.JPG)
 
 ## Features
 
-- ability to seamlessly create a README file
+- render a completely functioning HTML document
 
-- utilization of inquirer npm
+- list all employees with their information directly to HTML doc
+
+- utilizes inquirer
 
 ## License
 

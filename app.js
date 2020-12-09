@@ -13,42 +13,42 @@ function generateTeam() {
   inquirer
     .prompt([
       {
-        message: "What is the name of the Team Member?",
+        message: "What is the name of this team member?",
         name: "name",
       },
       {
         type: "list",
-        message: "What is the Team Member's role?",
+        message: "What is this team member's role?",
         choices: ["Engineer", "Intern", "Manager"],
         name: "role",
       },
       {
-        message: "What is the Team Member's id?",
+        message: "What is this team member's id?",
         name: "id",
       },
       {
-        message: "What is Team Member's email address?",
+        message: "What is this team member's email address?",
         name: "email",
       },
     ])
     .then(function ({ name, role, id, email }) {
       let roleAnswer = "";
       if (role === "Engineer") {
-        roleAnswer = "GitHub Username";
+        roleAnswer = "GitHub username";
       } else if (role === "Intern") {
-        roleAnswer = "School Name";
+        roleAnswer = "school";
       } else {
-        roleAnswer = "Office Number";
+        roleAnswer = "office number";
       }
       inquirer
         .prompt([
           {
-            message: `What is Team Member's ${roleAnswer}?`,
+            message: `What is this team member's ${roleAnswer}?`,
             name: "roleAnswer",
           },
           {
             type: "confirm",
-            message: "Would you like to add more Team Members?",
+            message: "Would you like to add any more team members?",
             name: "addMembers",
           },
         ])
