@@ -18,7 +18,7 @@ Portion of functioning HTML generated:
 
 Portion of HTML and how it looks in a browser:
 
-![image](https://user-images.githubusercontent.com/70075341/101699167-4e3ef980-3a40-11eb-9d8d-e7eca03aaab2.JPG)
+![image](https://user-images.githubusercontent.com/70075341/101845548-916a9c80-3b14-11eb-939b-89cfca8d8815.JPG)
 
 ## Code Example
 
