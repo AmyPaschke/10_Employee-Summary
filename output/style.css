@@ -1,0 +1,19 @@
+.jumbotron {
+  background-color: blue;
+  color: aliceblue;
+}
+
+#manager {
+  background-color: lightcoral;
+  color: aliceblue;
+}
+
+#intern {
+  background-color: lightgreen;
+  color: aliceblue;
+}
+
+#engineer {
+  background-color: lightslategray;
+  color: aliceblue;
+}
